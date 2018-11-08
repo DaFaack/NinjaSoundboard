@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.greenwoodsproductions.soundboardninja", appContext.getPackageName());
+        assertEquals("com.riftgames.soundboardninja", appContext.getPackageName());
     }
 }
