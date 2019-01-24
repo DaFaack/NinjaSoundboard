@@ -1,4 +1,4 @@
-package com.riftgames.soundboardninja.tabs;
+package com.blackskystudios.soundboardninja.tabs;
 
 import android.Manifest;
 import android.app.AlertDialog;
@@ -29,8 +29,8 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.Toast;
 
-import com.riftgames.soundboardninja.MainActivity;
-import com.riftgames.soundboardninja.R;
+import com.blackskystudios.soundboardninja.MainActivity;
+import com.blackskystudios.soundboardninja.R;
 
 import java.io.File;
 import java.io.FileOutputStream;

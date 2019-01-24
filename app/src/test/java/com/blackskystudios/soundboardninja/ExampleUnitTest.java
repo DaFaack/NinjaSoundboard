@@ -1,4 +1,4 @@
-package com.riftgames.soundboardninja;
+package com.blackskystudios.soundboardninja;
 
 import org.junit.Test;
 

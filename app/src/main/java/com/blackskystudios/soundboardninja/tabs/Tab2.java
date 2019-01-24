@@ -1,4 +1,4 @@
-package com.riftgames.soundboardninja.tabs;
+package com.blackskystudios.soundboardninja.tabs;
 
 import android.Manifest;
 import android.app.AlertDialog;
@@ -29,8 +29,8 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.Toast;
 
-import com.riftgames.soundboardninja.MainActivity;
-import com.riftgames.soundboardninja.R;
+import com.blackskystudios.soundboardninja.MainActivity;
+import com.blackskystudios.soundboardninja.R;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -39,38 +39,33 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 /**
- * Created by Ratan on 7/29/2015.
+ * Created by Oclemmy on 5/10/2016 for ProgrammingWizards Channel and http://www.Camposha.com.
  */
-public class Tab1 extends Fragment {
-
+public class Tab2 extends Fragment {
 
     GridView myGridView;
     int position;
     View layout;
-//    File soundfile;
-File directory;
+    //    File soundfile;
+    File directory;
+    String filename;
 
-    int max;
     public String[] items1 ={
-            "Ahhh","Baby","Real good","Haaa","Hello",
-            "Ho-ly-shit","Hooo 1","Hooo 2","Hooo 3","Love u",
-            "I'm so sorry","Let's go","Nooo !","OH 1","Oh 2",
-            "Oh 3","-oh god-","Oh.my.goodness.","Oh my gooood","OMG",
-            "OMG!!","Ouh yeaheah...","Oyoyoyoy","Shakira","Good Dancer",
-            "Take the shot...","...Double","Thats what I'm talking about","Who the hell","Wohahaha",
-            "Wouuw 1","Wouuw 2","Wouuw 3","Wouuw 4","Just Do It !",
-            "...Dreams come true"
+            "Headshot !","Brrrrihihi","Chewbaka","Clean 1","Clean 2",
+            "Disco Disco","Disco guahu","*Disco disco*","Do you no de wae","Girl",
+            "Real cute","Great Dancer","Headshot baby","Huuuiii","Indian is talking (1)",
+            "Indian is talking (2)","Keep it funky","Laugh 1","Laugh 2","Ninja-Scream",
+            "No scoped","Ohoho #$x*","Story time","U can't touch me !","You like to disco?",
+            "Got the moves"
     };
 
     public static int[] soundfiles ={
-            R.raw.ah,R.raw.baby,R.raw.felling,R.raw.haaaa,R.raw.hello,
-            R.raw.holyshit,R.raw.hoo1,R.raw.hoo2,R.raw.hoo3,R.raw.iloveyou,
-            R.raw.imsosorry,R.raw.letsgomen,R.raw.nowow,R.raw.oh,R.raw.oh2,
-            R.raw.oh3,R.raw.ohgod,R.raw.ohmygoodness,R.raw.omg1,R.raw.omg2,
-            R.raw.omg3,R.raw.ouhyeaah,R.raw.oyoyoyo,R.raw.shakira,R.raw.suchagooddancer,
-            R.raw.taketheshot,R.raw.thatsadouble,R.raw.thatswhatimtalkingabout,R.raw.whothehell,R.raw.wohoho,
-            R.raw.wouu1,R.raw.wouu2,R.raw.wouu3,R.raw.wouu4,R.raw.xxjustdoit,
-            R.raw.xxmakeyourdreams
+            R.raw.boomheadshot,R.raw.brrrihihihi,R.raw.chewbaka,R.raw.clean1,R.raw.clean2,
+            R.raw.discodisco1,R.raw.discodisco2, R.raw.discodisco3,R.raw.doyouknowdewae,R.raw.eyyogirl,
+            R.raw.eyyogirl2youlookrealcuterightnow,R.raw.greatdancer,R.raw.headshotbaby,R.raw.huiii,R.raw.indiantalking1,
+            R.raw.indiantalking2,R.raw.keepitfunky,R.raw.laugh1,R.raw.laugh2,R.raw.ninjascream,
+            R.raw.noscopedthiskid,R.raw.ohohoh,R.raw.story,R.raw.ucanttouchme,R.raw.yoiliketodisco,
+            R.raw.yougotthosmovesbaby
 
     };
 
@@ -81,18 +76,16 @@ File directory;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView=inflater.inflate(R.layout.tab1_layout,container,false);
+        View rootView=inflater.inflate(R.layout.tab2_layout,container,false);
 
-        layout=rootView.findViewById(R.id.kommentarelayout);
+        layout=rootView.findViewById(R.id.sprueche);
         File storage = Environment.getExternalStorageDirectory();
         directory = new File(storage.getAbsolutePath() +"/"+R.string.foldername+"/");
 //        soundfile=new File(directory, filename);
 
 
-
-
-        myGridView = (GridView)rootView.findViewById(R.id.kommentareGridView);
-        myGridView.setAdapter(new CustomGridAdapter(getActivity(), items1));
+        myGridView = (GridView)rootView.findViewById(R.id.spruecheGridView);
+        myGridView.setAdapter(new Tab2.CustomGridAdapter(getActivity(), items1));
         myGridView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
@@ -205,10 +198,10 @@ File directory;
 
                 @Override
                 public void onClick(View v) {
-                        if (context instanceof MainActivity) {
-                            ((MainActivity) context).TabOneItemClicked(position);
-                        }
 
+                        if (context instanceof MainActivity) {
+                            ((MainActivity) context).TabTwoItemClicked(position);
+                        }
 
                 }
             });
@@ -265,7 +258,6 @@ File directory;
             builder = new AlertDialog.Builder(getContext(), AlertDialog.THEME_HOLO_LIGHT);
 
         }
-
         builder.setItems(new CharSequence[]{"Ringtone", "Notificationtone", "Alarmtone"}, new DialogInterface.OnClickListener(){
 
             @Override
@@ -324,7 +316,6 @@ File directory;
             if(MainActivity.isTesting){
                 Toast.makeText(getContext(),"Sound Saved", Toast.LENGTH_SHORT).show();
             }
-
             // Log the name of the sound that is being saved
             Log.e("Saving sound ","#############");
 
@@ -423,4 +414,3 @@ File directory;
     }
 
 }
-

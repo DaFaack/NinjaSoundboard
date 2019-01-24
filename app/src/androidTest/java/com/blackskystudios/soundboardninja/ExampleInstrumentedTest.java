@@ -1,4 +1,4 @@
-package com.riftgames.soundboardninja;
+package com.blackskystudios.soundboardninja;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.riftgames.soundboardninja", appContext.getPackageName());
+        assertEquals("com.blackskystudios.soundboardninja", appContext.getPackageName());
     }
 }
